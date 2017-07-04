@@ -7,24 +7,17 @@ public class Intersection {
         int i0 = 0;
         int i1 = 0;
 
-        for(;;) {
+        while(i0 < arr0.length && i1 < arr1.length) {
             if(arr0[i0] == arr1[i1]) {
                 result.add(arr0[i0]);
 
-                if(++i0 == arr0.length)
-                    break;
-
-                if(++i1 == arr1.length)
-                    break;
+                ++i0;
+                ++i1;
             }
-            else if(arr0[i0] < arr1[i1]) {
-                if (++i0 == arr0.length)
-                    break;
-            }
-            else {
-                if (++i1 == arr1.length)
-                    break;
-            }
+            else if(arr0[i0] < arr1[i1])
+                ++i0;
+            else
+                ++i1;
         }
 
         int resultArray[] = new int[result.size()];
